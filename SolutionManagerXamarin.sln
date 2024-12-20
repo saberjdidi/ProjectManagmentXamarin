@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMangerXamarin.Androi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMangerXamarin.iOS", "ProjectMangerXamarin\ProjectMangerXamarin.iOS\ProjectMangerXamarin.iOS.csproj", "{F93A1EAC-CB16-45FB-AB23-ADA6B3CF5840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMangerXamarin", "ProjectMangerXamarin\ProjectMangerXamarin\ProjectMangerXamarin.csproj", "{8A762A60-AB81-4B45-BBDE-A3DC0B0E8D50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectMangerXamarin", "ProjectMangerXamarin\ProjectMangerXamarin\ProjectMangerXamarin.csproj", "{8A762A60-AB81-4B45-BBDE-A3DC0B0E8D50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

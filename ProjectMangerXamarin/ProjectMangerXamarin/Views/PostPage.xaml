@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProjectMangerXamarin.ViewModels"
+             xmlns:model="clr-namespace:ProjectMangerXamarin.Models"
+             x:Class="ProjectMangerXamarin.Views.PostPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddPostCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RefreshView x:DataType="local:PostViewModel" 
+                         Command="{Binding LoadPostCommand}"
+                         IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+            <CollectionView ItemsSource="{Binding Posts}" SelectionMode="None">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Text="List Posts" FontSize="Large" TextColor="Gray" HorizontalOptions="Center" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Label Text="No Data Found" FontSize="Large" TextColor="Gray" HorizontalOptions="Center" FontAttributes="Italic" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout x:DataType="model:PostModel">
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={RelativeSource AncestorType={x:Type local:PostViewModel}},
+                                                                              Path=DeletePostCommand}" CommandParameter="{Binding .}" />
+                                        <SwipeItem Text="Close" BackgroundColor="Green" IsDestructive="True" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Grid Padding="5">
+                                    <Frame CornerRadius="10" HasShadow="True">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding id}" FontAttributes="Bold" Grid.RowSpan="1"></Label>
+                                            <StackLayout>
+                                                <Label Grid.Column="1" Text="{Binding title}" FontAttributes="Bold"></Label>
+                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding body}" VerticalOptions="End"></Label>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                                <Image Source="edit.png" Grid.Column="3" HeightRequest="30" WidthRequest="30" VerticalOptions="End">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type local:PostViewModel}},
+                                                                              Path=EditPostCommand}" CommandParameter="{Binding .}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </SwipeView>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

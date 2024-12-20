@@ -14,6 +14,7 @@ namespace ProjectMangerXamarin
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(AddEditProductPage), typeof(AddEditProductPage));
+            Routing.RegisterRoute(nameof(AddEditPostPage), typeof(AddEditPostPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
