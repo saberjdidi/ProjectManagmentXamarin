@@ -50,6 +50,19 @@
                                                                               Path=ProductEditCommand}" CommandParameter="{Binding .}"/>
                                                         </Image.GestureRecognizers>
                                                     </Image>
+                                                    <Label Text="&#xe872;" FontFamily="RegularMaterial" TextColor="Red" FontSize="Large" >
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:ProductViewModel}},
+                                                                                   Path=ProductDeleteCommand}" CommandParameter="{Binding .}" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                    <!--
+                                                    <Button Text="&#xf88d;" FontFamily="RegularMaterial" TextColor="Green" FontSize="Large" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ProductViewModel}},
+                                                                              Path=ProductEditCommand}" CommandParameter="{Binding .}" />
+                                                    <Button Text="&#xe872;" FontFamily="TwoToneMaterial" TextColor="Red" FontSize="Large" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ProductViewModel}},
+                                                                              Path=ProductDeleteCommand}" CommandParameter="{Binding .}" />
+                                                    -->
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>
